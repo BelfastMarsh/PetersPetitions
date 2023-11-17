@@ -85,6 +85,10 @@ public class Petition {
         return title;
     }
 
+    public String getTitle(String bookender) {
+        return bookender + this.title + bookender;
+    }
+
     public String getUniqueTitle() {
         return uniqueTitle;
     }

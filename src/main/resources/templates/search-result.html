@@ -4,8 +4,10 @@
 <body>
 <header th:replace="~{fragments :: header}"></header>
 <ul>
-    <li th:each="ePetition : ${petitions}"
-        th:text="@{__${ePetition.getPetition().getTitle()}__ __${ePetition.getWeighting()}__}"></li>
+    <li th:each="ePetition : ${petitions}">
+        <a th:href="@{/view/__${ePetition.getPetition().getUniqueTitle()}__}"
+           th:text="${ePetition.getPetition().getTitle()}">link</a>
+    </li>
 </ul>
 <script th:replace="~{fragments :: footer}"></script>
 </body>
