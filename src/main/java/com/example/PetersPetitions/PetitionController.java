@@ -53,7 +53,7 @@ public class PetitionController {
     @GetMapping(value = "/create")
     public String create(Model model){
         model.addAttribute("title", "Create Petition");
-        return "index";
+        return "create";
     }
 
     @GetMapping(value = "/search")

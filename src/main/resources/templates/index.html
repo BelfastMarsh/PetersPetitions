@@ -7,5 +7,6 @@
     <ul>
         <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition}"></p></li>
     </ul>
+    <script th:replace="~{fragments :: footer}"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments :: head}"></head>
+    <body>
+        <header th:replace="~{fragments :: header}"></header>
+        <form method="post" action="/create">
+            <input type="text" name="title">
+            <textarea name="description"></textarea>
+            <input type="text" name="authorName">
+            <input type="text" name="authorEmail">
+            <input type="submit" name="create">
+        </form>
+        <script th:replace="~{fragments :: footer}"></script>
+    </body>
+</html>
