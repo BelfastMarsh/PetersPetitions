@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
 <body>
-  <h1>Hello Peter's Petitions Trevor</h1>
+    <header th:replace="fragments :: header"></header>
+    <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view</h5>
+    <ul>
+        <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition}"></p></li>
+    </ul>
 </body>
 </html>

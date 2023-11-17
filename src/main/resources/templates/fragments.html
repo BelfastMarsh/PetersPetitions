@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title th:text="${title}"></title>
+</head>
+<body>
+<header th:fragment="header">
+    <h1>
+        Peter's Petitions
+    </h1>
+    <nav id="primary-nav">
+        <ul>
+            <li><a href="home">home</a></li>
+            <li><a href="create">Create</a></li>
+            <li><a href="view">List Petitions</a></li>
+            <li><a href="search">Search</a></li>
+        </ul>
+    </nav>
+</header>
+
+</body>
+</html>
