@@ -65,8 +65,8 @@ public class Petition {
 
         // use streams to filter the titles to generate unique title
         int existingTitles = allPetitions.stream().filter(
-                pt -> pt.title.equalsIgnoreCase(this.title)).toArray().length;
-        this.uniqueTitle = title + "_p" + existingTitles + 1;
+                pt -> pt.uniqueTitle.equalsIgnoreCase(this.title.replace(' ','_'))).toArray().length;
+        this.uniqueTitle = title.replace(' ','_') + "_i" + (++existingTitles);
 
         // add itself to the static reference list
         Petition.allPetitions.add(this);
