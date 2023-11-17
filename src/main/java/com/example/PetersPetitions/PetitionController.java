@@ -4,6 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -32,9 +34,21 @@ public class PetitionController {
             return "404";
         Petition thePetition = somePetitions.get(0);
         model.addAttribute("petition", thePetition);
+        model.addAttribute("uTitle", name);
         model.addAttribute("title", thePetition.getTitle());
         return "view-petition";
     }
+
+    @PostMapping(value = "/view/{pttn}/add")
+    public String addSignature(@RequestParam("name") String name, @RequestParam("email") String email, @PathVariable String pttn){
+        List<Petition> somePetitions = Petition.getAllPetitions().stream().filter(pt -> pt.getUniqueTitle().equalsIgnoreCase(pttn)).toList();
+        if (somePetitions.isEmpty()) return "404";
+        Petition p = somePetitions.get(0);
+        p.addSignatory(name, email);
+        return "redirect:/view/"+pttn;
+    }
+
+
 
     @GetMapping(value = "/create")
     public String create(Model model){

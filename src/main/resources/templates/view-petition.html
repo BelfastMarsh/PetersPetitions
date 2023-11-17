@@ -3,6 +3,20 @@
     <head th:replace="~{fragments :: head}"></head>
     <body>
         <header th:replace="~{fragments :: header}"></header>
-        <h2 th:text="${petition.getTitle()}">placeholder</h2>
+        <h2 th:text="${petition.getTitle()}"></h2>
+        <p th:unless="${petition.getSignatures().size()}">No one has signed the petition yet :(</p>
+        <ul>
+            <li th:each="signer : ${petition.getSignatures()}">
+                <div>
+                    <p th:text="${signer.getName()}"></p>
+                    <p th:text="${signer.getEmail()}"></p>
+                </div>
+            </li>
+        </ul>
+        <form method="post" th:action="@{/view/__${uTitle}__/add}">
+            <input type="text" name="name">
+            <input type="text" name="email">
+            <input type="submit" value="submit">
+        </form>
     </body>
 </html>

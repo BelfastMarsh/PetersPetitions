@@ -73,6 +73,9 @@ public class Petition {
 
     }
 
+    public void addSignatory(String name, String emailAddress){
+        this.signatures.add(new User(name, emailAddress));
+    }
 
     public String getDescription() {
         return description;
