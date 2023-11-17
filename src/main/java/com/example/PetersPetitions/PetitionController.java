@@ -71,7 +71,7 @@ public class PetitionController {
     @GetMapping(value = "/search")
     public String search(Model model){
         model.addAttribute("title", "Search Petitions");
-        return "index";
+        return "search";
     }
 
 }
