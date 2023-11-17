@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments :: head"></head>
+<head th:replace="~{fragments :: head}"></head>
 <body>
-    <header th:replace="fragments :: header"></header>
-    <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view</h5>
+    <header th:replace="~{fragments :: header}"></header>
+    <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view wibble</h5>
     <ul>
         <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition}"></p></li>
     </ul>
