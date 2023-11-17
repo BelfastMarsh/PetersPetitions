@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Controller
 public class PetitionController {
 
@@ -25,9 +27,13 @@ public class PetitionController {
 
     @GetMapping(value = "/view/{name}")
     public String petition(Model model, @PathVariable String name){
-        model.addAttribute("title", "Petition - " + name);
-
-        return "index";
+        List<Petition> somePetitions = Petition.getAllPetitions().stream().filter(pt -> pt.getUniqueTitle().equalsIgnoreCase(name)).toList();
+        if (somePetitions.isEmpty())
+            return "404";
+        Petition thePetition = somePetitions.get(0);
+        model.addAttribute("petition", thePetition);
+        model.addAttribute("title", thePetition.getTitle());
+        return "view-petition";
     }
 
     @GetMapping(value = "/create")

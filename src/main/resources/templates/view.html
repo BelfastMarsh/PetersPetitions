@@ -8,6 +8,7 @@
 <ul>
     <li th:each="petition : ${petitions}">
         <div class="clickable" data-ref="${petition.getUniqueTitle()}">
+            <p th:text="${petition.getUniqueTitle()}"></p>
             <p th:text="${petition.getTitle()}"></p>
             <p th:text="${petition.getDescription()}"></p>
             <p th:text="${petition.getAuthor().getName()}"></p>
