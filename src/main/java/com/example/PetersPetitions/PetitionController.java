@@ -56,6 +56,18 @@ public class PetitionController {
         return "create";
     }
 
+    @PostMapping(value = "/create/new")
+    public String createPetition(@RequestParam("title") String title,
+                                 @RequestParam("description") String description,
+                                 @RequestParam("authorName") String name,
+                                 @RequestParam("authorEmail") String email,
+                                 Model model) {
+        model.addAttribute("title", "Create Petition");
+        User author = new User(name, email);
+        Petition petition = new Petition(title, description, author);
+
+        return "redirect:/view/"+petition.getUniqueTitle();
+    }
     @GetMapping(value = "/search")
     public String search(Model model){
         model.addAttribute("title", "Search Petitions");
