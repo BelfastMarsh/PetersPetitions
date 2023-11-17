@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<ul>
+    <li th:each="ePetition : ${petitions}"
+        th:text="@{__${ePetition.getPetition().getTitle()}__ __${ePetition.getWeighting()}__}"></li>
+</ul>
+<script th:replace="~{fragments :: footer}"></script>
+</body>
+</html>

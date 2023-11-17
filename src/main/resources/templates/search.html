@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<form action="/search" method="post">
+    <input type="text" name="search-text">
+    <input type="submit" name="Search">
+</form>
+<script th:replace="~{fragments :: footer}"></script>
+</body>
+</html>
