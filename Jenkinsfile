@@ -50,9 +50,9 @@ pipeline{
                     if (userInput == 'Yes')
                     {
                         echo 'deploying Peter\'s Petitions App'
-                        sh 'docker build -f Dockerfile -t ptrspttnsapp .'
-                        sh 'docker rm -f "ppacontainer" || true'
-                        sh 'docker run --name "ppacontainer" -p 9090:8080 --detach ptrspttnsapp:latest'
+                        sh 'docker build -f Dockerfile -t ptrspttnsapptest .'
+                        sh 'docker rm -f "ppacontainertest" || true'
+                        sh 'docker run --name "ppacontainertest" -p 9091:8080 --detach ptrspttnsapptest:latest'
                     }
                     else{
                         echo 'User Aported'

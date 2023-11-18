@@ -20,10 +20,10 @@
         <div class="container-fluid">
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="/">home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/create">Create</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/view">List Petitions</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/search">Search</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{__${depth}__/}">home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{__${depth}__/create}">Create</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{__${depth}__/view}">List Petitions</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{__${depth}__/search}">Search</a></li>
                 </ul>
             </div>
         </div>

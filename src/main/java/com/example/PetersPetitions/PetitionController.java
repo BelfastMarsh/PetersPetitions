@@ -1,5 +1,6 @@
 package com.example.PetersPetitions;
 
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,7 @@ public class PetitionController {
     @GetMapping("/")
     public String home(Model model) {
         Petition.makePetitions();
+        model.addAttribute("depth", "");
         model.addAttribute("title", "View All Petitions");
         model.addAttribute("petitions", Petition.getAllPetitions());
         return "index";
@@ -22,18 +24,23 @@ public class PetitionController {
 
     @GetMapping(value = "/view")
     public String view(Model model){
+        model.addAttribute("depth", "");
         model.addAttribute("title", "View All Petitions");
         model.addAttribute("petitions", Petition.getAllPetitions());
         return "view";
     }
 
     @GetMapping(value = "/view/{name}")
-    public String petition(Model model, @PathVariable String name){
+    public String petition(HttpServletRequest req, Model model, @PathVariable String name){
         List<Petition> somePetitions = Petition.getAllPetitions().stream().filter(pt -> pt.getUniqueTitle().equalsIgnoreCase(name)).toList();
+
+        String url = req.getRequestURI();
         if (somePetitions.isEmpty())
             return "404";
         Petition thePetition = somePetitions.get(0);
         model.addAttribute("petition", thePetition);
+        model.addAttribute("url", url);
+        model.addAttribute("depth", "..");
         model.addAttribute("uTitle", name);
         model.addAttribute("title", thePetition.getTitle());
         return "view-petition";
@@ -45,18 +52,19 @@ public class PetitionController {
         if (somePetitions.isEmpty()) return "404";
         Petition p = somePetitions.get(0);
         p.addSignatory(name, email);
-        return "redirect:/view/"+pttn;
+        return "redirect:../view/"+pttn;
     }
 
 
 
     @GetMapping(value = "/create")
     public String create(Model model){
+        model.addAttribute("depth", "");
         model.addAttribute("title", "Create Petition");
         return "create";
     }
 
-    @PostMapping(value = "/create/new")
+    @PostMapping(value = "create/new")
     public String createPetition(@RequestParam("title") String title,
                                  @RequestParam("description") String description,
                                  @RequestParam("authorName") String name,
@@ -66,10 +74,11 @@ public class PetitionController {
         User author = new User(name, email);
         Petition petition = new Petition(title, description, author);
 
-        return "redirect:/view/"+petition.getUniqueTitle();
+        return "redirect:../view/"+petition.getUniqueTitle();
     }
-    @GetMapping(value = "/search")
+    @GetMapping(value = "search")
     public String search(Model model){
+        model.addAttribute("depth", "");
         model.addAttribute("title", "Search Petitions");
         return "search";
     }
@@ -124,4 +133,10 @@ public class PetitionController {
         model.addAttribute("petitions", weightedPetitionsArray);
         return "search-result";
     }
+
+
+
+
+
+
 }
