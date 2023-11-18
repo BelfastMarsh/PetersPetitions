@@ -4,7 +4,7 @@ pipeline{
         stage ('Get Project'){
             steps{
                 echo 'Cloning Project from Github'
-                git 'https://github.com/BelfastMarsh/PetersPetitions.git'
+                git branch: 'test', url: 'https://github.com/BelfastMarsh/PetersPetitions.git'
             }
         }
         stage('Build'){
