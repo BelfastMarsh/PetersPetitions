@@ -13,7 +13,7 @@
             <p th:text="${petition.getDescription()}"></p>
             <p th:text="${petition.getAuthor().getName()}"></p>
             <p th:text="${petition.getSignatures().size()}"></p>
-            <a th:href="@{/view/__${petition.getUniqueTitle()}__}">click</a>
+            <a th:href="@{__${depth}__/view/__${petition.getUniqueTitle()}__}">click</a>
         </div>
     </li>
 </ul>

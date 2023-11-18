@@ -5,7 +5,7 @@
 <header th:replace="~{fragments :: header}"></header>
 <ul>
     <li th:each="ePetition : ${petitions}">
-        <a th:href="@{/view/__${ePetition.getPetition().getUniqueTitle()}__}"
+        <a th:href="@{__${depth}__/view/__${ePetition.getPetition().getUniqueTitle()}__}"
            th:text="${ePetition.getPetition().getTitle()}">link</a>
     </li>
 </ul>

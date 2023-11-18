@@ -22,7 +22,7 @@ pipeline{
             steps{
                 echo('archiving')
                 archiveArtifacts allowEmptyArchive: true,
-                    artifacts: '**PetersPetitions*.war'
+                    artifacts: '**/PetersPetitions*.war'
             }
         }
         stage ('Authentication'){
@@ -40,7 +40,6 @@ pipeline{
                             )
                         ]
                     )
-
                 }
             }
         }
