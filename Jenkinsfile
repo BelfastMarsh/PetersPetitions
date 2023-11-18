@@ -25,7 +25,9 @@ pipeline{
                     artifacts: '**PetersPetitions*.war'
             }
         }
-        stage ('Authentication'){
+       /*
+       no authentication needed in test
+       stage ('Authentication'){
             steps{
                 script {
                     echo 'Starting deployment process...'
@@ -43,7 +45,7 @@ pipeline{
 
                 }
             }
-        }
+        }*/
         stage('Deploy'){
             steps{
                 script{
