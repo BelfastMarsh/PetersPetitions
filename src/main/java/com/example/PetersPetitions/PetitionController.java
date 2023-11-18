@@ -20,8 +20,8 @@ public class PetitionController {
      */
     private String generateHierarchy(HttpServletRequest req){
         String url = req.getRequestURI();
-        url = url.replace("/PetersPetitions", "");
-        int urlDepth = url.split("/").length - 1 ;
+        url = url.replace("/PetersPetitions/", "");
+        int urlDepth = url.split("/").length -2 ;
         String hierarchy = "";
         String slsh = "";
         for(int d = 0; d < urlDepth; d++){
