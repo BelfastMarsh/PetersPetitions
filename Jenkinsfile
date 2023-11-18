@@ -49,17 +49,12 @@ pipeline{
         stage('Deploy'){
             steps{
                 script{
-                    if (userInput == 'Yes')
-                    {
+
                         echo 'deploying Peter\'s Petitions App'
                         sh 'docker build -f Dockerfile -t ptrspttnsapptest .'
                         sh 'docker rm -f "ppacontainertest" || true'
                         sh 'docker run --name "ppacontainertest" -p 9091:8080 --detach ptrspttnsapptest:latest'
-                    }
-                    else{
-                        echo 'User Aported'
-                        currentBuild.result = 'ABORTED'
-                    }
+
                 }
             }
         }
