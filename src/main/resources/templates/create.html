@@ -3,7 +3,7 @@
     <head th:replace="~{fragments :: head}"></head>
     <body>
         <header th:replace="~{fragments :: header}"></header>
-        <form method="post" action="create/new">
+        <form method="post" th:action="@{__${depth}__/create/new}">
             <input type="text" name="title">
             <textarea name="description"></textarea>
             <input type="text" name="authorName">

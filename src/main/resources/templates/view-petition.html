@@ -14,7 +14,7 @@
                 </div>
             </li>
         </ul>
-        <form method="post" th:action="@{__${uTitle}__/add}">
+        <form method="post" th:action="@{__${depth}__/view/__${uTitle}__/add}">
             <input type="text" name="name">
             <input type="text" name="email">
             <input type="submit" value="submit">

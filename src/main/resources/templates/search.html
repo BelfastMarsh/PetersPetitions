@@ -3,7 +3,7 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<form action="search/result" method="post">
+<form th:action="@{__${depth}__/search/result}" method="post">
     <input type="text" name="search-text">
     <input type="submit" name="Search">
 </form>

@@ -5,7 +5,7 @@
     <header th:replace="~{fragments :: header}"></header>
     <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view wibble</h5>
     <ul>
-        <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition}"></p></li>
+        <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition.getTitle()}"></p></li>
     </ul>
     <script th:replace="~{fragments :: footer}"></script>
 </body>
