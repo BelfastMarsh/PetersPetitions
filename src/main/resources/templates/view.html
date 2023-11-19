@@ -3,20 +3,22 @@
 <head th:replace="~{fragments :: head}">
 </head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-<h5 th:unless="${petitions} and ${petitions.size()}">no petitions available at this time</h5>
-<ul>
-    <li th:each="petition : ${petitions}">
-        <div class="clickable" data-ref="${petition.getUniqueTitle()}">
-            <p th:text="${petition.getUniqueTitle()}"></p>
-            <p th:text="${petition.getTitle()}"></p>
-            <p th:text="${petition.getDescription()}"></p>
-            <p th:text="${petition.getAuthor().getName()}"></p>
-            <p th:text="${petition.getSignatures().size()}"></p>
-            <a th:href="@{__${depth}__/view/__${petition.getUniqueTitle()}__}">click</a>
-        </div>
-    </li>
-</ul>
+    <div id="content" class="px-1">
+        <header th:replace="~{fragments :: header}"></header>
+        <h5 th:unless="${petitions} and ${petitions.size()}">no petitions available at this time</h5>
+        <ul>
+            <li th:each="petition : ${petitions}">
+                <div class="clickable" data-ref="${petition.getUniqueTitle()}">
+                    <p th:text="${petition.getUniqueTitle()}"></p>
+                    <p th:text="${petition.getTitle()}"></p>
+                    <p th:text="${petition.getDescription()}"></p>
+                    <p th:text="${petition.getAuthor().getName()}"></p>
+                    <p th:text="${petition.getSignatures().size()}"></p>
+                    <a th:href="@{__${depth}__/view/__${petition.getUniqueTitle()}__}">click</a>
+                </div>
+            </li>
+        </ul>
+    </div>
 <script th:replace="~{fragments :: footer}"></script>
 </body>
 </html>

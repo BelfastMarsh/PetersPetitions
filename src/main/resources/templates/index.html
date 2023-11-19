@@ -2,11 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-    <header th:replace="~{fragments :: header}"></header>
-    <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view wibble</h5>
-    <ul>
-        <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition.getTitle()}"></p></li>
-    </ul>
+    <div id="content" class="px-1">
+        <header th:replace="~{fragments :: header}"></header>
+        <div class="container-fluid px-4 py-2">
+            <p>
+                Welcome to Peter's Petitions. Here you can view, sign and create your own petitions.
+            </p>
+            <p>
+                Use the Nav bar at the top to access site functionality.
+            </p>
+
+        </div>
+        <!--
+        <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view wibble</h5>
+        <ul>
+            <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition.getTitle()}"></p></li>
+        </ul>-->
+    </div>
     <script th:replace="~{fragments :: footer}"></script>
 </body>
 </html>

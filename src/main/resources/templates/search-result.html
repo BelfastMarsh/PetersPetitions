@@ -2,13 +2,15 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-<ul>
-    <li th:each="ePetition : ${petitions}">
-        <a th:href="@{__${depth}__/view/__${ePetition.getPetition().getUniqueTitle()}__}"
-           th:text="${ePetition.getPetition().getTitle()}">link</a>
-    </li>
-</ul>
-<script th:replace="~{fragments :: footer}"></script>
+    <div id="content" class="px-1">
+        <header th:replace="~{fragments :: header}"></header>
+        <ul>
+            <li th:each="ePetition : ${petitions}">
+                <a th:href="@{__${depth}__/view/__${ePetition.getPetition().getUniqueTitle()}__}"
+                   th:text="${ePetition.getPetition().getTitle()}">link</a>
+            </li>
+        </ul>
+    </div>
+    <script th:replace="~{fragments :: footer}"></script>
 </body>
 </html>

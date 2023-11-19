@@ -2,11 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-<form th:action="@{__${depth}__/search/result}" method="post">
-    <input type="text" name="search-text">
-    <input type="submit" name="Search">
-</form>
-<script th:replace="~{fragments :: footer}"></script>
+    <div id="content" class="px-1">
+        <header th:replace="~{fragments :: header}"></header>
+        <form th:action="@{__${depth}__/search/result}" method="post">
+            <input type="text" name="search-text">
+            <input type="submit" name="Search">
+        </form>
+    </div>
+    <script th:replace="~{fragments :: footer}"></script>
 </body>
 </html>
