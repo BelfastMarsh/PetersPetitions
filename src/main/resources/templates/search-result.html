@@ -4,12 +4,14 @@
 <body>
     <div id="content" class="px-1">
         <header th:replace="~{fragments :: header}"></header>
-        <ul>
-            <li th:each="ePetition : ${petitions}">
-                <a th:href="@{__${depth}__/view/__${ePetition.getPetition().getUniqueTitle()}__}"
-                   th:text="${ePetition.getPetition().getTitle()}">link</a>
-            </li>
-        </ul>
+
+        <div th:each="ePetition : ${petitions}" class="card p-0 mt-2 petition-card">
+            <a th:href="@{__${depth}__/view/__${ePetition.getPetition().getUniqueTitle()}__}"  class="card-body">
+                <h5 class="card-title"  th:text="${ePetition.getPetition().getTitle()}"></h5>
+                <p class="card-text" th:text="${ePetition.getPetition().getDescription()}"></p>
+                <p class="card-text" th:text="@{proposer: __${ePetition.getPetition().getAuthor().getName()}__}"></p>
+            </a>
+        </div>
     </div>
     <script th:replace="~{fragments :: footer}"></script>
 </body>

@@ -13,11 +13,34 @@
             </p>
 
         </div>
-        <!--
-        <h5 th:unless="${petitions} and ${petitions.size()}">nothing to view wibble</h5>
-        <ul>
-            <li th:each="petition : ${petitions}"><p class="clickable" th:text="${petition.getTitle()}"></p></li>
-        </ul>-->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6 col-md-4 mb-4">
+                    <a class="card petition-card py-5 index-links" href="create">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Create Petition</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a class="card petition-card py-5 index-links" href="create">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">List All Petitions</h5>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-md-4 mb-4">
+                    <a class="card petition-card py-5 index-links" href="create">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Search for Petition</h5>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
     <script th:replace="~{fragments :: footer}"></script>
 </body>

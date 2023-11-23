@@ -26,21 +26,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-4 card ">
-                        <div class="card-body">
-                            <form method="post" th:action="@{__${depth}__/view/__${uTitle}__/add}">
-                                <div class="mb-3">
-                                    <label for="name">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="email">email</label>
-                                    <input type="text" name="email" id="email" class="form-control">
-                                </div>
-                                <div class="mb-3">
-                                    <input type="submit" value="submit" class="btn btn-success">
-                                </div>
-                            </form>
+                    <div class="col-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="post" th:action="@{__${depth}__/view/__${uTitle}__/add}">
+                                    <div class="mb-3">
+                                        <label for="name">Name</label>
+                                        <input type="text" name="name" id="name" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email">email</label>
+                                        <input type="text" name="email" id="email" class="form-control">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="submit" value="submit" class="btn btn-success">
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

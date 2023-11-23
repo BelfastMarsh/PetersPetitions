@@ -110,43 +110,8 @@ public class PetitionController {
                                Model model, HttpServletRequest req){
         model.addAttribute("depth", generateHierarchy(req));
 
-        String[] bits = searchValue.split(" ");
-        HashMap<String, WeightedPetition> weightedPetitions = new HashMap<>();
-
-        // this is the mad weighting algorithm I came up with
-        /*
-         add 1 to weighting if title contains word as part word
-         add 3 to weighting if title contains word as full word
-         add 10 to weighting if title == complete search term
-         add 5 to weighting if title contains complete search term.
-        */
-        for (String bit : bits){
-            List<Petition> matchingPetitions =
-                    Petition.getAllPetitions().stream().filter(p ->
-                            p.getTitle().toLowerCase().contains(bit.toLowerCase())).toList();
-            for (Petition petition : matchingPetitions){
-                if (!weightedPetitions.containsKey(petition.getUniqueTitle())){
-                    weightedPetitions.put(petition.getUniqueTitle(),
-                            new WeightedPetition(0,petition));
-                }
-                if (weightedPetitions.get(petition.getUniqueTitle()).getPetition().getTitle(" ").
-                        toLowerCase().contains(" " + bit.toLowerCase() + " ")){
-                    weightedPetitions.get(petition.getUniqueTitle()).addWeighting(3);
-                }
-                else {
-                    weightedPetitions.get(petition.getUniqueTitle()).addWeighting(1);
-                }
-            }
-        }
-        // add additional weighting if search term == title of petition
-        // or add (not quite as much) weighting if search term is a substring of title
-        for (WeightedPetition weightedPetition : weightedPetitions.values()) {
-            if (weightedPetition.getPetition().getTitle().equalsIgnoreCase(searchValue))
-                weightedPetition.addWeighting(10);
-            else if (weightedPetition.getPetition().getTitle().toLowerCase().
-                    contains(searchValue.toLowerCase()))
-                weightedPetition.addWeighting(5);
-        }
+        // get weighted petitions from search term.
+        HashMap<String, WeightedPetition> weightedPetitions = WeightedPetition.createWeightedPetitions(searchValue);
 
         //sort weighted petitions in reverse order of weighting
         List<WeightedPetition> weightedPetitionsArray =

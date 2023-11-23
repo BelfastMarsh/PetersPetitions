@@ -4,3 +4,17 @@ div#content{
     margin:0 auto;
     padding-top:2em;
 }
+.petition-card a, a.petition-card {
+    text-decoration: none;
+}
+.clickable:hover{
+    cursor:hand;
+}
+.index-links{
+    /*height:4em;*/
+    vertical-align: middle;
+    text-decoration: none;
+}
+.index-links:hover{
+    background-color:#AAA;
+}

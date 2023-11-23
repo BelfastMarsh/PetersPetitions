@@ -4,9 +4,16 @@
 <body>
     <div id="content" class="px-1">
         <header th:replace="~{fragments :: header}"></header>
-        <form th:action="@{__${depth}__/search/result}" method="post">
-            <input type="text" name="search-text">
-            <input type="submit" name="Search">
+        <h4>Search for petition</h4>
+        <form th:action="@{__${depth}__/search/result}" method="post" class="mt-3">
+            <div class="input-group">
+                <div class="form-floating m-0 p-0" aria-describedby="search-btn">
+                    <input class="form-control" type="text" name="search-text" id="search-text" placeholder="search term">
+                    <label for="search-text" id="search-text-label">Search</label>
+                </div>
+                <input type="submit" class="btn btn-secondary" name="Search" id="search-btn">
+            </div>
+
         </form>
     </div>
     <script th:replace="~{fragments :: footer}"></script>

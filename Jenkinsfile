@@ -9,6 +9,12 @@ pipeline{
         }
         stage('Build'){
             steps{
+                echo 'Cleaning'
+                sh 'mvn clean:clean'
+            }
+        }
+        stage ('Package') {
+            steps {
                 echo 'Building package'
                 sh 'mvn package'
             }
@@ -16,6 +22,7 @@ pipeline{
         stage('Test'){
             steps {
                 echo 'Testing'
+                sh 'mvn test'
             }
         }
         stage ('Archive'){

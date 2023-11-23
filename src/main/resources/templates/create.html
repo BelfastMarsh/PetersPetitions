@@ -4,28 +4,31 @@
     <body>
         <div id="content" class="px-1">
             <header th:replace="~{fragments :: header}"></header>
-            <form method="post" th:action="@{__${depth}__/create/new}">
-                <div class="mb-3">
-                    <label for="title">Petition Title</label>
-                    <input type="text" name="title" class="form-control" id="title">
-                </div>
-                <div class="mb-3">
-                    <label for="description">Description</label>
-                    <textarea name="description" class="form-control" id="description"></textarea>
-                </div>
-                <div class="mb-3">
-                    <label for="author-name">Author name</label>
-                    <input type="text" name="authorName" class="form-control" id="author-name">
-                </div>
-                <div class="mb-3">
-                    <label for="author-email">Author email address</label>
-                    <input type="email" name="authorEmail" class="form-control" id="author-email">
-                </div>
-                <div class="mb-3">
-                    <input type="submit" name="create" class="btn btn-success">
-                </div>
+            <div class="p-2">
+                <h5>Create New Petition</h5>
+                <form method="post" th:action="@{__${depth}__/create/new}">
+                    <div class="mb-3">
+                        <label for="title">Petition Title</label>
+                        <input type="text" name="title" class="form-control" id="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description">Description</label>
+                        <textarea name="description" class="form-control" id="description"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="author-name">Author name</label>
+                        <input type="text" name="authorName" class="form-control" id="author-name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="author-email">Author email address</label>
+                        <input type="email" name="authorEmail" class="form-control" id="author-email">
+                    </div>
+                    <div class="mb-3">
+                        <input type="submit" name="create" class="btn btn-success">
+                    </div>
 
-            </form>
+                </form>
+            </div>
             <script th:replace="~{fragments :: footer}"></script>
         </div>
     </body>
