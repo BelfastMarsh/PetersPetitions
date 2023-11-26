@@ -41,7 +41,7 @@ public class PetitionController {
     public String home(HttpServletRequest req, Model model) {
         Petition.makePetitions();
         model.addAttribute("depth", generateHierarchy(req));
-        model.addAttribute("title", "View All Petitions");
+        model.addAttribute("title", "Home");
         model.addAttribute("petitions", Petition.getAllPetitions());
         return "index";
     }
@@ -125,7 +125,7 @@ public class PetitionController {
                                  @RequestParam("authorName") String name,
                                  @RequestParam("authorEmail") String email,
                                  Model model) {
-        model.addAttribute("title", "Create Petition");
+
         User author = new User(name, email);
         Petition petition = new Petition(title, description, author);
 
@@ -164,7 +164,7 @@ public class PetitionController {
         List<WeightedPetition> weightedPetitionsArray =
                 weightedPetitions.values().stream().
                         sorted(Comparator.comparingInt(WeightedPetition::getWeighting).reversed()).toList();
-
+        model.addAttribute("title", "Search Results");
         model.addAttribute("petitions", weightedPetitionsArray);
         return "search-result";
     }
