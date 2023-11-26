@@ -61,7 +61,7 @@ pipeline{
                         sh 'docker run --name "ppacontainer" -p 9090:8080 --detach ptrspttnsapp:latest'
                     }
                     else{
-                        echo 'User Aported'
+                        echo 'User Aborted'
                         currentBuild.result = 'ABORTED'
                     }
                 }
