@@ -10,7 +10,9 @@ public class Petition {
 
     private static boolean petitionsMade = false;
 
-    // make placeholder petitions to test functionality
+    /**
+     * static method to create some dummy petition
+     */
     public static void makePetitions(){
 
         if (!petitionsMade) {
@@ -73,9 +75,15 @@ public class Petition {
 
     }
 
+    /**
+     * adds signature signatures ArrayList of the petition
+     * @param name name of signatory
+     * @param emailAddress email address of signatory
+     */
     public void addSignatory(String name, String emailAddress){
         this.signatures.add(new User(name, emailAddress));
     }
+
 
     public String getDescription() {
         return description;
@@ -85,6 +93,11 @@ public class Petition {
         return title;
     }
 
+    /**
+     * gets the title with the String value added at the end and the beginning of the title
+     * @param bookender the string to add to tbe beginning and the end
+     * @return the title with the bookender at the end and the beginning (ie, getTitle("_") would return "_Title_"
+     */
     public String getTitle(String bookender) {
         return bookender + this.title + bookender;
     }

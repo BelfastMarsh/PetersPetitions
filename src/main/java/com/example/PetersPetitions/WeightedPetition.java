@@ -62,6 +62,12 @@ public class WeightedPetition {
 
     private int weighting;
     private Petition petition;
+
+    /**
+     * constructor
+     * @param weighting
+     * @param petition
+     */
     public WeightedPetition(int weighting, Petition petition) {
         this.petition = petition;
         this.weighting = weighting;

@@ -7,6 +7,11 @@ public class User {
 
     private String email;
 
+    /**
+     * constructor
+     * @param name
+     * @param email
+     */
     public User(String name, String email) {
         this.name = name;
         this.email = email;
